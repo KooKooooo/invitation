@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>手紙</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="Style/letter.css">
+        <link rel="stylesheet" href="Style/cursor.css">
+        <link rel="stylesheet" href="Style/sakura.min.css">
+        <link rel="stylesheet" href="Style/welcome.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
+
+    </head>
+    
+    <body>
+        <div id="overlay">
+            <div id="popup">
+               <h2><span id="user-name"></span>様</h2>
+                <p>お時間頂き有難うございます &#128522</p>
+                <button id="closeBtn">閉じる</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="envelope-wrapper">
+                <div class="envelope">
+                    <div class="letter">
+                        <div class="text">
+                            <div><strong id ="user-name-2"></strong><strong>様</strong></div>
+                            <div>
+                                春が近い、花も咲くようになったね。<br>
+                                もしご一緒に花見に行く機会があれば<a href="question.html" >ここ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="seal"></div>
+            </div>
+        </div>
+
+        <script>
+            const nameValue = localStorage.getItem('user-name');
+
+            document.getElementById('user-name').textContent = nameValue;
+            document.getElementById('user-name-2').textContent = nameValue;
+        </script>
+
+
+        <script src="scripts/sakura.min.js"></script>
+        <script>
+            var sakura = new Sakura('body');
+        </script>
+
+        <script>
+            const envelope = document.querySelector('.envelope-wrapper');
+            envelope.addEventListener('click', () => {
+                envelope.classList.toggle('flap');
+            });
+        </script>
+
+        <script src="scripts/welcome.js"></script>
+
+    </body>
+</html>

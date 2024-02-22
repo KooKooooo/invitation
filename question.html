@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>質問</title>
+
+        <link rel="stylesheet" href="Style/question.css">
+        <link rel="stylesheet" href="Style/general.css">
+        <link rel="stylesheet" href="Style/sakura.min.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <div id="ask" class="question-container">
+           
+                <div class="question-title">
+                    一緒に花見に行きませんか？
+                </div>
+                <div class="gif_container">
+                    <img src="https://media.tenor.com/tbq1x_4ZUiEAAAAi/act-innocent.gif" alt="Cute animated illustration">
+                </div>
+
+                <div class="question-reply">
+                    <button class="box" id = "yesButton" onclick="nextPage()">
+                        YES
+                    </button>
+                    <button class="box" id="noButton" onmouseover="moveButton()" onclick="moveButton()">
+                        NO
+                    </buttons>
+                </div>   
+        </div>  
+
+        <div id="ans" class="container">
+            <div >
+                <h1 class = "header_text">やった!!</h1>
+            </div>
+            <div class="gif_container">
+                <img src="https://media.tenor.com/2gcR0jU5EMEAAAAi/%E5%AC%89%E3%81%97%E3%81%84-%E3%82%84%E3%81%A3%E3%81%9F%E3%83%BC.gif" alt="嬉しいクーの姿">
+            </div>
+        </div>
+        
+        <script src ="scripts/question.js"></script>
+        <script src="scripts/sakura.min.js"></script>
+        <script>
+            var sakura = new Sakura('div');
+        </script>
+
+        <script src ="scripts/answer.js"></script>
+    </body>
+</html>

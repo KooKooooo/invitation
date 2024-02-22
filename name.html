@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Name</title>
+
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="Style/general.css">
+        <link rel="stylesheet" href="Style/button.css">
+        <link rel="stylesheet" href="Style/header.css">
+        <link rel="stylesheet" href="Style/popup.css">
+    </head>
+
+
+    <body>  
+        <div class="popup">
+            <div class="popup-content">
+                <form id="form">
+                    <input class="name-bar" id="name" type="text" name="name" placeholder="名前を入力">
+                    <input type="submit" id="sub" hidden>
+                </form>      
+            </div>
+        </div>
+
+        <script>
+            const form = document.getElementById('form');
+            const name = document.getElementById('name');
+
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+
+                const nameValue = name.value;
+                
+                localStorage.setItem('user-name', nameValue);
+
+                window.location.href = "letter.html";
+            })
+
+        </script>
+
+
+        <script>
+           
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                document.querySelector("#sub").value = "Submiting..";
+                let data = new FormData(form);
+                fetch('https://script.google.com/macros/s/AKfycbwgZY-9uC5FF0cdleGu3GYV_nJzwU8LV6LL3Y25fZNN8tuF-cpaTB_bAdnqhZYTgs0M/exec', {
+                        method: "POST",
+                        body: data
+                    })
+                   
+                    .then(res => res.text())
+                    .then(data => {
+                        document.querySelector("#msg").innerHTML = data;
+                        
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    })
+                    .finally(() => {
+                        document.querySelector("#sub").value = "Submit";
+                        redirectToAnotherPage();
+                    });
+            });
+
+            function redirectToAnotherPage(){
+                console.log("Redirecting....")
+                window.location.href = "letter.html";
+            }
+        </script>
+
+    </body>
+</html>
