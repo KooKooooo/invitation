@@ -116,3 +116,15 @@ body {
         width: auto;
     }
 }
+
+.contact{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.refer{
+    border : 0;
+    background-color: none;
+    padding: 0;
+    cursor: url("cursor/hand.png"), auto;
+}
